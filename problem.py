@@ -14,7 +14,7 @@ def find_position(list1,num):
     while(beg<=end):
         mid=(beg+end)//2
         if list1[mid]==num:
-            return mid
+            return list1.index(list1[mid])
         elif num>list1[mid]:
             end=mid-1
         else:
