@@ -62,31 +62,53 @@ class LinkedList:
             print("Deleting Last Node:",temp.next.data)
             temp.next=None
             
-                    
+    def delete_specific(self,key):
+        if self.isempty:
+            print("Failed Attempt. List is Empty")
+            return
+        if self.head.data==key:
+            print(f"Deleting {key} Node ")
+            self.head=self.head.next
+        else:
+            temp=self.head
+            temp_nxt=self.head.next
+            while temp_nxt!=None:
+                if temp_nxt.data==key:
+                    print(f"Deleting {key} Node ")
+                    temp.next=temp_nxt.next
+                    break
+                temp=temp_nxt
+                temp_nxt=temp_nxt.next
+                
     
     @property
     def peek(self):
         if self.isempty:
             print("Operation failed")
             return
-        print("Head:",self.head.data)
-        
-        
-a=LinkedList()
-a.display
-a.delete_head()
-a.append_back(20)
-a.delete_head()
-a.append(30)
-a.append(40)
-a.append(50)
-a.display
-a.peek
-a.append(60)
-a.append_back(20)
-a.append_back(10)
-a.delete_head()
+        return f"Head:{self.head.data}"
+    
+ 
+    def __len__(self):
+        count=0
+        temp =self.head
+        while temp:
+            count+=1
+            temp=temp.next
+        return count
+    
+    def __str__(self):
+        result = []
+        temp = self.head
+        while temp:
+            result.append(str(temp.data))
+            temp = temp.next
+        return " -> ".join(result) + " -> None"
 
+a=LinkedList()
+a.append(12)
+a.append(12)
+a.append(12)
+print(len(a))
 a.display
-a.delete_back()
-                
+print(a)
