@@ -61,6 +61,7 @@ s.push(13)
 s.push(14)                  
 s.push(15)                  
 s.push(16)
+print(s)
 print(s.peek())                  
             
     
